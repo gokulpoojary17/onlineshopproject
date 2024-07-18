@@ -1,0 +1,37 @@
+.row{
+    margin-top: 20px;
+    width: 90%;
+    margin-left: 150px;
+    gap:20px;
+    
+}
+img{
+    width:150px;height: 150px; 
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+    margin-bottom: 30px;
+    margin-left: 01px;
+    margin-right: 50px;
+    border-radius: 20px;
+    border-color: rgb(62, 156, 243);
+    border-style: solid;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+  
+    
+}
+.card-body{
+    text-align: center;
+    display:contents;
+  
+}
+.col-md-2{
+    border-radius: 20px;
+
+    border-color: rgb(50, 117, 241);
+    border-style: solid;
+box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+    
+}

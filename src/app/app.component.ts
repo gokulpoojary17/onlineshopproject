@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CartService } from './cart.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,18 @@ import { Component } from '@angular/core';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'onlineshopproject';
+  title(title: any) {
+    throw new Error('Method not implemented.');
+  }
+
+itemInCart: number = 0;
+
+  constructor(private cartService: CartService) {}
+
+  ngOnInit() {
+    this.cartService.getCartItems().subscribe((cartItems: any[]) => {
+      this.itemInCart = cartItems.length;
+    });
+  }
 }
+

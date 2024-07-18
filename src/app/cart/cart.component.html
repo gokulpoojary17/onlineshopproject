@@ -1,0 +1,59 @@
+<div class="empty" *ngIf="items.length<1">
+    <div class="info">
+        <h1>Your cart is empty</h1>
+        <img class="image" src="/assets/homeproducts/images (10).png" alt="image">
+        <p>Add some products to your cart</p>
+        <a routerLink="/products" class="btn btn-primary">Go to products</a>
+    </div>
+
+</div>
+<form>
+    <ng-container class="container" *ngIf="items.length>0">
+        <div class="container mt-4" style="width: 90%;">
+            <div class="table table-responsive table-striped">
+                <table class="table table-bordered">
+
+                    <thead style="background-color: rgb(255, 255, 255);">
+                        <tr>
+                            <th scope="col">Image</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Id</th>
+                            <th scope="col">Quantity</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Total amount</th>
+                            <th scope="col"> No of items</th>
+                            <th scope="col">Remove</th>
+
+
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of items;let i = index">
+                            <td><img [src]="item.image" class="img-fluid" alt="{{item.name}}" style="width: 40px;height: 40px;">
+                            </td>
+                            <td>{{item.name}}</td>
+                            <td>{{item.id}}</td>
+                            <td>{{item.quantity}}</td>
+                            <td>{{item.price}}</td>
+                            <td> {{item.price*item.quantity|currency}}
+                            </td>
+                            <td> <input type="number" class="qty " [value]="item.quantity"
+                                    (blur)="validateInput($event,i)">
+                            </td>
+                            <td> <i class="fa fa-trash text-danger" aria-hidden="true" (click)="ondelete(i)"></i>
+                            </td>
+
+
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+
+      
+
+    </ng-container>
+   
+</form>

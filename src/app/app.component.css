@@ -1,0 +1,40 @@
+.navbar-brand{
+    color: rgb(245, 244, 240);
+    font-weight: 900;
+    font-family:'Times New Roman', Times, serif;
+    font-size: 30px;
+
+
+  }
+
+  .nav-link {
+    color: rgb(240, 243, 243);
+    font-weight: 900;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    justify-content: space-around;
+  
+  }
+
+  #mainNav .nav-link:hover {
+    color: rgb(250, 5, 209);
+  }
+  img{
+    width: 80px;
+    height: 70px;
+  }
+  /* .cart{
+    position: absolute;
+   
+  }
+  .fa{
+    position: relative;
+  } */
+  nav{
+    padding: 1px;
+    height: 60px;
+  }
+  .input-group{
+    margin-left: 540px;
+  }
+  

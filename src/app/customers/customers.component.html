@@ -1,0 +1,72 @@
+<div class="product">
+  <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+    <li class="nav-item" role="presentation">
+      <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home"
+        type="button" role="tab" aria-controls="pills-home" aria-selected="true">card view</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile"
+        type="button" role="tab" aria-controls="pills-profile" aria-selected="false">List view</button>
+    </li>
+    <div class="button">
+      <button class="btn btn-transparent mb-3 "(click)="showAddProductForm = true">Add Customers</button>
+    </div>
+
+  </ul>
+</div>
+<div class="cards">
+  <div class="tab-content" id="pills-tabContent">
+    <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+      <app-customer-card></app-customer-card>
+    </div>
+    <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+      <app-customer-list></app-customer-list>
+    </div>
+  </div>
+</div>
+
+
+<div *ngIf="showAddProductForm">
+  <div class="container">
+
+    <div *ngIf="showAddProductForm">
+      <form (ngSubmit)="onAddProduct()">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" class="form-control" id="name" [(ngModel)]="newProduct.cust_name" name="name" required>
+        </div>
+        <div class="form-group">
+          <label for="quantity">email</label>
+          <input type="text" class="form-control" id="email" [(ngModel)]="newProduct.email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="price">Phone</label>
+          <input type="number" class="form-control" id="phone" [(ngModel)]="newProduct.phone" name="phone" required>
+        </div>
+        <div>
+          <label for="image"> Upload Image: </label>
+          <div><input type="file" (change)="onFileChange($event)" name="image" required></div>
+        </div>
+
+
+        <div>
+          <div *ngIf="onFileChange">
+            <div *ngIf="newProduct.image">
+              <h3>Preview:</h3>
+
+              <img [src]="newProduct.image" alt="Image preview" style="max-width: 100%; height: auto;">
+              <div> Name :{{newProduct.cust_name}}</div>
+              <div> Email:{{newProduct.email}}</div>
+              <div> Phone :{{newProduct.phone}}</div>
+
+
+            </div>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-success">Add Product</button>
+        <button type="button" class="btn btn-secondary" (click)="showAddProductForm = false">Cancel</button>
+      </form>
+    </div>
+  </div>
+
+  

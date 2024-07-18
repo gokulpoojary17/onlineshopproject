@@ -1,0 +1,45 @@
+
+<div class="container mt-4" style="width: 90%;">
+    <div class="table table-responsive table-striped">
+      <table class="table table-bordered">    
+
+        <thead style="background-color: rgb(255, 255, 255);">
+          <tr>
+            <th scope="col">Image</th>
+            <th scope="col">name</th>
+            <th scope="col">Id</th>
+            <th scope="col">Mail Adress</th>
+            <th scope="col">Phone</th>
+            <th scope="col">Activity</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let customer of customers ,let i=index">
+            <td><img [src]="customer.image" class="img-fluid" alt="{{customer.cust_name}}" style="width: 40px;height: 40px;"></td>
+            <td>{{customer.cust_name}}</td>
+            <td>{{customer.id}}</td>
+            <td>{{customer.email}}</td>
+            <td>{{customer.phone}}</td>
+
+            <div *ngIf="selectedCustomer && selectedCustomer.id === customer.id">
+              <td><input [(ngModel)]="selectedCustomer.cust_name" placeholder="Name"></td>
+              <td><input [(ngModel)]="selectedCustomer.email" placeholder="Email"></td>
+              <td><input [(ngModel)]="selectedCustomer.phone" placeholder="Phone"></td>
+              <td><button (click)="saveCustomer()">Save</button></td>
+              <button (click)="cancelEdit()">Cancel</button>
+            </div>
+            <div *ngIf="!selectedCustomer || selectedCustomer.id !== customer.id"> 
+              <div class="icons">
+              <td><i class="fa fa-edit text-success" aria-hidden="true" (click)="editCustomer(customer)"></i></td>
+              <td><i class="fa fa-trash text-danger" aria-hidden="true" (click)="ondelete(i)"></i></td>
+            </div>
+            </div>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
+  
+   
